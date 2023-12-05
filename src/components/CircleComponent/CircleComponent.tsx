@@ -17,10 +17,7 @@ const CircleContainer = () => {
   const handleUndo = () => {
     if (circles.length > 0) {
       const lastCircle = circles[circles.length - 1];
-      setUndoneCircles((prevUndoneCircles) => [
-        ...prevUndoneCircles,
-        lastCircle,
-      ]);
+      setUndoneCircles((prevUndoneCircles) => [...prevUndoneCircles, lastCircle]);
       setCircles((prevCircles) => prevCircles.slice(0, -1));
     }
   };
@@ -34,30 +31,21 @@ const CircleContainer = () => {
   };
 
   return (
-    <>
-      <div
-        onClick={handleClick}
-        className="relative w-screen h-screen border-2 border-black z-30"
-      >
+    <div className="flex flex-col justify-center items-center h-screen">
+      <div onClick={handleClick}  className="relative w-screen h-screen border-2 border-black">
         {circles.map((circle, index) => (
           <CircleComponent key={index} x={circle.x} y={circle.y} />
         ))}
-        <div className="bg-white absolute z-50">
-          <button
-            onClick={handleUndo}
-            className="px-5 py-3 bg-red-600 hover:bg-red-500"
-          >
-            Desfazer
-          </button>
-          <button
-            onClick={handleRedo}
-            className="px-5 py-3 bg-blue-600 hover:bg-blue-500"
-          >
-            Refazer
-          </button>
-        </div>
       </div>
-    </>
+      <div className="absolute top-5 flex flex-row justify-center items-center">
+        <button onClick={handleUndo} className="px-5 py-3 bg-red-600 hover:bg-red-500">
+          Desfazer
+        </button>
+        <button onClick={handleRedo} className="px-5 py-3 bg-blue-600 hover:bg-blue-500">
+          Refazer
+        </button>
+      </div>
+    </div>
   );
 };
 
