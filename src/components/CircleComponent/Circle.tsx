@@ -10,7 +10,7 @@ const CircleComponent = ({ x, y }: CircleProps) => {
   return (
     <div
       style={circleStyle}
-        className={`w-10 h-10 rounded-full bg-blue-500 absolute transform -translate-x-1/2 -translate-y-1/2 border-[.5px] border-white`}
+        className={`w-10 h-10 rounded-full bg-green-700 absolute transform -translate-x-1/2 -translate-y-1/2 shadow-2xl shadow-green-400 border-[.5px] border-white`}
     ></div>
   );
 };
